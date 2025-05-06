@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: swe645-credit-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: swe645-credit-app
+  template:
+    metadata:
+      labels:
+        app: swe645-credit-app
+    spec:
+      containers:
+        - name: swe645-credit-container
+          image: your-dockerhub-username/swe645-credit-app:latest
+          ports:
+            - containerPort: 5000
